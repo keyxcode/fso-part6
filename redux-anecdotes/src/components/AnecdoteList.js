@@ -13,14 +13,20 @@ const Anecdote = ({ anecdote, handleClick }) => (
 
 const AnecdoteList = () => {
   const anecdotes = useSelector(({ anecdotes, filter }) => {
-    if (filter === "ALL") {
-      return anecdotes;
-    }
-    return anecdotes.filter((anecdote) =>
-      anecdote.content.toLowerCase().includes(filter.toLowerCase())
-    );
+    // if (filter === "ALL") {
+    //   return anecdotes;
+    // }
+    // return anecdotes.filter((anecdote) =>
+    //   anecdote.content.toLowerCase().includes(filter.toLowerCase())
+    // );
+
+    return anecdotes;
   });
-  const anecdotesSortedByVotes = anecdotes.sort((a, b) => b.votes - a.votes);
+
+  console.log(anecdotes);
+  const anecdotesSortedByVotes = anecdotes
+    .slice()
+    .sort((a, b) => b.votes - a.votes);
 
   const dispatch = useDispatch();
 
