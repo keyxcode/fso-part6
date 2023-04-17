@@ -13,14 +13,12 @@ const Anecdote = ({ anecdote, handleClick }) => (
 
 const AnecdoteList = () => {
   const anecdotes = useSelector(({ anecdotes, filter }) => {
-    // if (filter === "ALL") {
-    //   return anecdotes;
-    // }
-    // return anecdotes.filter((anecdote) =>
-    //   anecdote.content.toLowerCase().includes(filter.toLowerCase())
-    // );
-
-    return anecdotes;
+    if (filter === "ALL") {
+      return anecdotes;
+    }
+    return anecdotes.filter((anecdote) =>
+      anecdote.content.toLowerCase().includes(filter.toLowerCase())
+    );
   });
 
   console.log(anecdotes);
