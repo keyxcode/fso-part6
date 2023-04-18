@@ -21,7 +21,6 @@ const AnecdoteList = () => {
     );
   });
 
-  console.log(anecdotes);
   const anecdotesSortedByVotes = anecdotes
     .slice()
     .sort((a, b) => b.votes - a.votes);
