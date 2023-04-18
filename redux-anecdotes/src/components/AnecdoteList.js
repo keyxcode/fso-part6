@@ -28,6 +28,14 @@ const AnecdoteList = () => {
 
   const dispatch = useDispatch();
 
+  const handleClick = (anecdote) => {
+    dispatch(vote(anecdote.id));
+    dispatch(notificationChange(`you voted for ${anecdote.content}`));
+    setTimeout(() => {
+      dispatch(notificationChange(``));
+    }, 3000);
+  };
+
   return (
     <div>
       {anecdotesSortedByVotes.map((anecdote) => (
@@ -35,8 +43,7 @@ const AnecdoteList = () => {
           key={anecdote.id}
           anecdote={anecdote}
           handleClick={() => {
-            dispatch(vote(anecdote.id));
-            dispatch(notificationChange(`you voted for ${anecdote.content}`));
+            handleClick(anecdote);
           }}
         />
       ))}
