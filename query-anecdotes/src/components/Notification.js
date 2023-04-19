@@ -11,6 +11,7 @@ const Notification = () => {
     marginBottom: 5,
   };
 
+  if (noti === null) return null;
   return <div style={style}>{noti}</div>;
 };
 

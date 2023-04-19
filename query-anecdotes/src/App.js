@@ -23,7 +23,7 @@ const App = () => {
       payload: `anecdote "${anecdote.content}" voted`,
     });
     setTimeout(() => {
-      dispatch({ type: "SET_NOTI", payload: "" });
+      dispatch({ type: "CLEAR_NOTI" });
     }, 3000);
   };
 
