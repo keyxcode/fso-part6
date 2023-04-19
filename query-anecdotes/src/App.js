@@ -1,7 +1,7 @@
 import AnecdoteForm from "./components/AnecdoteForm";
 import Notification from "./components/Notification";
-import { useQuery } from "react-query";
-import { getAnecdotes } from "./requests";
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import { getAnecdotes, createAnecdote } from "./requests";
 
 const App = () => {
   const handleVote = (anecdote) => {
@@ -11,7 +11,6 @@ const App = () => {
   const result = useQuery("anecdotes", getAnecdotes, {
     retry: 1,
   });
-  console.log(result);
 
   if (result.isLoading) {
     return <div>loading data...</div>;
